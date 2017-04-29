@@ -1,0 +1,11 @@
+name: Custom_Zombie
+main: me.Sebastian.Custom_Zombie.Main
+version: 1.0
+
+commands:
+  customzombie:
+  target:
+  testpath:
+  killall:
+  loc1:
+  loc2:
