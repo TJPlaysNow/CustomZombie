@@ -7,14 +7,12 @@ package me.Sebastian.CustomZombie.Pathfinding;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.material.Gate;
 
 public class AStar {
 
@@ -252,7 +250,7 @@ public class AStar {
 			// make sure the blocks above are air
 
 			for(int y = 1; y <= abs(height)+1; y++){
-				if(!canBlockBeWalkedThrough(b.getRelative(0, y, 0).getTypeId())){
+				if(!canBlockBeWalkedThrough(b.getRelative(0, y, 0).getType())){
 					return false;
 				}
 			}
@@ -264,22 +262,19 @@ public class AStar {
 
 	private boolean isLocationWalkable(Location l) {
 		Block b = l.getBlock();
-		int i = b.getTypeId();
+		Material i = b.getType();
 		// lava, fire, wheat and ladders cannot be walked on, and of course air
 		// 85, 107 and 113 stops npcs climbing fences and fence gates
-		if(b.isLiquid() || i == 10 || i == 11 || i == 51 || i == 59 || i == 65 || i == 0 || i == 85 || i == 188
-				|| i == 101 || i == 107 || i == 113 || canBlockBeWalkedThrough(i)){
-			return false;
-		}else{
+		if(i.isSolid() || i.isBlock()){
 			// make sure the blocks above are air or can be walked through
-
-			return (canBlockBeWalkedThrough(b.getRelative(0, 1, 0).getTypeId()) && b.getRelative(0, 2, 0).getTypeId() == 0);
+			return (canBlockBeWalkedThrough(b.getRelative(0, 1, 0).getType()) && b.getRelative(0, 2, 0).getType().equals(Material.AIR));
+		}else{
+			return false;
 		}
 	}
 
-	private boolean canBlockBeWalkedThrough(int id) {
-		return (id == 0 || id == 6 || id == 50 || id == 63 || id == 30 || id == 31 || id == 32 || id == 37 || id == 38 || id == 39 || id == 40 || id == 55 || id == 66 || id == 75
-				|| id == 76 || id == 78 || id == 106 || id == 171 || id == 175 || id == 77 || id == 147);
+	private boolean canBlockBeWalkedThrough(Material id) {
+		return (id.isTransparent() || !id.isBlock());
 	}
 	
 	private Location getViableLocation(Location loc){

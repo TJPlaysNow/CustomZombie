@@ -80,6 +80,7 @@ public class PathfinderTargetPlayer extends PathfinderGoalTarget{
 			public void run() {
 				if(target == null){
 					this.cancel();
+					return;
 				}
 				
 				start = entity.getBukkitEntity().getLocation();
@@ -94,6 +95,7 @@ public class PathfinderTargetPlayer extends PathfinderGoalTarget{
 					if(result != PathingResult.SUCCESS || walkNodes == null){
 						errors++;
 						Bukkit.getLogger().info("Unable to find path! ("+errors+")");
+						this.cancel();
 						return;
 					}
 				} catch (InvalidPathException e1) {
@@ -101,6 +103,7 @@ public class PathfinderTargetPlayer extends PathfinderGoalTarget{
 					Bukkit.getLogger().info("Invalid path exception ("+errors+")");
 					//start or end is air
 					this.cancel();
+					return;
 				}
 			}
 		}.runTaskAsynchronously(Main.getMainClass());
@@ -162,8 +165,7 @@ public class PathfinderTargetPlayer extends PathfinderGoalTarget{
 		*/
 		
 		if(target instanceof LivingEntity){
-			if(target.getLocation().getBlock().getLocation().add(0.5, 0, 0.5)
-					.distanceSquared(currentLoc.getBlock().getLocation().add(0.5, 0, 0.5)) <= 2){
+			if(target.getLocation().getBlock().getLocation().add(0.5, 0, 0.5).distanceSquared(currentLoc.getBlock().getLocation().add(0.5, 0, 0.5)) <= 2){
 				
 				LivingEntity le = (LivingEntity) target;
 				le.damage(1, entity.getBukkitEntity());
