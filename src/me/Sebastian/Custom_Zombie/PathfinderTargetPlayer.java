@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -14,10 +13,10 @@ import me.Sebastian.CustomZombie.Pathfinding.AStar;
 import me.Sebastian.CustomZombie.Pathfinding.AStar.InvalidPathException;
 import me.Sebastian.CustomZombie.Pathfinding.PathingResult;
 import me.Sebastian.CustomZombie.Pathfinding.Tile;
-import net.minecraft.server.v1_10_R1.EntityCreature;
-import net.minecraft.server.v1_10_R1.Navigation;
-import net.minecraft.server.v1_10_R1.PathEntity;
-import net.minecraft.server.v1_10_R1.PathfinderGoalTarget;
+import net.minecraft.server.v1_11_R1.EntityCreature;
+import net.minecraft.server.v1_11_R1.Navigation;
+import net.minecraft.server.v1_11_R1.PathEntity;
+import net.minecraft.server.v1_11_R1.PathfinderGoalTarget;
 
 public class PathfinderTargetPlayer extends PathfinderGoalTarget{
 	
@@ -74,14 +73,13 @@ public class PathfinderTargetPlayer extends PathfinderGoalTarget{
 						errors = 0;
 					}
 				}
-			}.runTaskLaterAsynchronously(Main.getMainClass(), errors*10);
-			
+			}.runTaskLaterAsynchronously(Main.getMainClass(), errors * 10);
 		}
 		
-		new BukkitRunnable(){
-			public void run(){
+		new BukkitRunnable() {
+			public void run() {
 				if(target == null){
-					return;
+					this.cancel();
 				}
 				
 				start = entity.getBukkitEntity().getLocation();
@@ -102,7 +100,7 @@ public class PathfinderTargetPlayer extends PathfinderGoalTarget{
 					errors++;
 					Bukkit.getLogger().info("Invalid path exception ("+errors+")");
 					//start or end is air
-					return;
+					this.cancel();
 				}
 			}
 		}.runTaskAsynchronously(Main.getMainClass());

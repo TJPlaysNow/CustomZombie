@@ -3,26 +3,26 @@ package me.Sebastian.Custom_Zombie;
 import java.lang.reflect.Field;
 import java.util.HashSet;
 
-import net.minecraft.server.v1_10_R1.EntityCreature;
-import net.minecraft.server.v1_10_R1.EntityHuman;
-import net.minecraft.server.v1_10_R1.EntityLiving;
-import net.minecraft.server.v1_10_R1.EntityZombie;
-import net.minecraft.server.v1_10_R1.GenericAttributes;
-import net.minecraft.server.v1_10_R1.PathfinderGoalFloat;
-import net.minecraft.server.v1_10_R1.PathfinderGoalHurtByTarget;
-import net.minecraft.server.v1_10_R1.PathfinderGoalLookAtPlayer;
-import net.minecraft.server.v1_10_R1.PathfinderGoalMoveTowardsRestriction;
-import net.minecraft.server.v1_10_R1.PathfinderGoalNearestAttackableTarget;
-import net.minecraft.server.v1_10_R1.PathfinderGoalRandomLookaround;
-import net.minecraft.server.v1_10_R1.PathfinderGoalRandomStroll;
-import net.minecraft.server.v1_10_R1.PathfinderGoalSelector;
-import net.minecraft.server.v1_10_R1.PathfinderGoalZombieAttack;
-
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_10_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_11_R1.CraftWorld;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Zombie;
 import org.bukkit.event.entity.EntityTargetEvent.TargetReason;
+
+import net.minecraft.server.v1_11_R1.EntityCreature;
+import net.minecraft.server.v1_11_R1.EntityHuman;
+import net.minecraft.server.v1_11_R1.EntityLiving;
+import net.minecraft.server.v1_11_R1.EntityZombie;
+import net.minecraft.server.v1_11_R1.GenericAttributes;
+import net.minecraft.server.v1_11_R1.PathfinderGoalFloat;
+import net.minecraft.server.v1_11_R1.PathfinderGoalHurtByTarget;
+import net.minecraft.server.v1_11_R1.PathfinderGoalLookAtPlayer;
+import net.minecraft.server.v1_11_R1.PathfinderGoalMoveTowardsRestriction;
+import net.minecraft.server.v1_11_R1.PathfinderGoalNearestAttackableTarget;
+import net.minecraft.server.v1_11_R1.PathfinderGoalRandomLookaround;
+import net.minecraft.server.v1_11_R1.PathfinderGoalRandomStroll;
+import net.minecraft.server.v1_11_R1.PathfinderGoalSelector;
+import net.minecraft.server.v1_11_R1.PathfinderGoalZombieAttack;
 
 public class CustomZombie extends EntityZombie{
 	
