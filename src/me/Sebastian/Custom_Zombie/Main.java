@@ -13,8 +13,8 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.v1_11_R1.CraftWorld;
-import org.bukkit.craftbukkit.v1_11_R1.entity.CraftLivingEntity;
+import org.bukkit.craftbukkit.v1_10_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_10_R1.entity.CraftLivingEntity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Zombie;
@@ -27,11 +27,11 @@ import me.Sebastian.CustomZombie.Pathfinding.AStar.InvalidPathException;
 import me.Sebastian.CustomZombie.Pathfinding.PathingResult;
 import me.Sebastian.CustomZombie.Pathfinding.Tile;
 import net.md_5.bungee.api.ChatColor;
-import net.minecraft.server.v1_11_R1.AttributeInstance;
-import net.minecraft.server.v1_11_R1.AttributeModifier;
-import net.minecraft.server.v1_11_R1.Entity;
-import net.minecraft.server.v1_11_R1.EntityInsentient;
-import net.minecraft.server.v1_11_R1.GenericAttributes;
+import net.minecraft.server.v1_10_R1.AttributeInstance;
+import net.minecraft.server.v1_10_R1.AttributeModifier;
+import net.minecraft.server.v1_10_R1.Entity;
+import net.minecraft.server.v1_10_R1.EntityInsentient;
+import net.minecraft.server.v1_10_R1.GenericAttributes;
 
 public class Main extends JavaPlugin{
 	
@@ -235,14 +235,14 @@ public class Main extends JavaPlugin{
 	    {
 	        //getPrivateField is the method from above.
 	        //Remove the lines with // in front of them if you want to override default entities (You'd have to remove the default entity from the map first though).
-	        ((Map<String, Class<CustomZombie>>)getPrivateField("c", net.minecraft.server.v1_11_R1.EntityTypes.class, null)).put(name, clazz);
-	        ((Map<Class<CustomZombie>, String>)getPrivateField("d", net.minecraft.server.v1_11_R1.EntityTypes.class, null)).put(clazz, name);
+	        ((Map<String, Class<CustomZombie>>)getPrivateField("c", net.minecraft.server.v1_10_R1.EntityTypes.class, null)).put(name, clazz);
+	        ((Map<Class<CustomZombie>, String>)getPrivateField("d", net.minecraft.server.v1_10_R1.EntityTypes.class, null)).put(clazz, name);
 	        //((Map)getPrivateField("e", net.minecraft.server.v1_7_R4.EntityTypes.class, null)).put(Integer.valueOf(id), clazz);
-	        ((Map<Class<CustomZombie>, Integer>)getPrivateField("f", net.minecraft.server.v1_11_R1.EntityTypes.class, null)).put(clazz, Integer.valueOf(id));
+	        ((Map<Class<CustomZombie>, Integer>)getPrivateField("f", net.minecraft.server.v1_10_R1.EntityTypes.class, null)).put(clazz, Integer.valueOf(id));
 	        //((Map)getPrivateField("g", net.minecraft.server.v1_7_R4.EntityTypes.class, null)).put(name, Integer.valueOf(id));
 	    }
 	}
-	public static Object getPrivateField(String fieldName, Class<? extends net.minecraft.server.v1_11_R1.EntityTypes> clazz, Object object)
+	public static Object getPrivateField(String fieldName, Class<? extends net.minecraft.server.v1_10_R1.EntityTypes> clazz, Object object)
     {
         Field field;
         Object o = null;

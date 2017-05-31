@@ -1,11 +1,11 @@
 package me.Sebastian.Custom_Zombie;
 
-import net.minecraft.server.v1_11_R1.EntityCreature;
-import net.minecraft.server.v1_11_R1.Navigation;
-import net.minecraft.server.v1_11_R1.PathEntity;
-import net.minecraft.server.v1_11_R1.PathfinderGoalTarget;
-
 import org.bukkit.Location;
+
+import net.minecraft.server.v1_10_R1.EntityCreature;
+import net.minecraft.server.v1_10_R1.Navigation;
+import net.minecraft.server.v1_10_R1.PathEntity;
+import net.minecraft.server.v1_10_R1.PathfinderGoalTarget;
 
 public class PathfinderGoalWalkToLoc extends PathfinderGoalTarget{
 	

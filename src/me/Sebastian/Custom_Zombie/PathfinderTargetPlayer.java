@@ -13,10 +13,10 @@ import me.Sebastian.CustomZombie.Pathfinding.AStar;
 import me.Sebastian.CustomZombie.Pathfinding.AStar.InvalidPathException;
 import me.Sebastian.CustomZombie.Pathfinding.PathingResult;
 import me.Sebastian.CustomZombie.Pathfinding.Tile;
-import net.minecraft.server.v1_11_R1.EntityCreature;
-import net.minecraft.server.v1_11_R1.Navigation;
-import net.minecraft.server.v1_11_R1.PathEntity;
-import net.minecraft.server.v1_11_R1.PathfinderGoalTarget;
+import net.minecraft.server.v1_10_R1.EntityCreature;
+import net.minecraft.server.v1_10_R1.Navigation;
+import net.minecraft.server.v1_10_R1.PathEntity;
+import net.minecraft.server.v1_10_R1.PathfinderGoalTarget;
 
 public class PathfinderTargetPlayer extends PathfinderGoalTarget{
 	
